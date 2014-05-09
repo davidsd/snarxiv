@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{/home7/davidsdo/texmf/tex/latex/diagrams}
+\pagestyle{empty}
+\setlength\textwidth{3.9in}
+
+\newtheorem*{theorem}{Theorem}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\lt{<}
+\newcommand\gt{>}
+\newcommand\squarecode[8]{
+      #1        & \rTo^{#5} & #2       \\
+      \dTo^{#6} &           & \dTo^{#7}\\
+      #3        & \rTo^{#8} & #4\\
+}
+\newcommand\bottomadd[5]{
+\dTo^{#1} & & \dTo^{#2}\\
+#3 & \rTo^{#4} & #5\\
+}
+\newcommand\onebyone[8]{
+\begin{diagram}
+\squarecode{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}
+\end{diagram}
+}
+\newcommand\nothing{}
+\newcommand\oneldots{
+\begin{diagram}
+\cdots\\
+\\
+\cdots\\
+\end{diagram}
+}
+\newcommand\twoldots{
+\begin{diagram}
+\cdots\\
+\\
+\cdots\\
+\\
+\cdots\\
+\end{diagram}
+}
+\newcommand\threeldots{
+\begin{diagram}
+\cdots\\
+\\
+\cdots\\
+\\
+\cdots\\
+\\
+\cdots\\
+\end{diagram}
+}
+\newcommand\rightonearrow[2]{
+&\rTo^{#1} & #2\\
+}
+\newcommand\bottomrightadd[3]{
+& & \dTo^{#1}\\
+& \rTo^{#2} & #3\\
+}
+\newcommand\rightaddone[5]{
+\begin{diagram}
+\rightonearrow{#1}{#2}
+\bottomrightadd{#3}{#4}{#5}
+\end{diagram}
+}
+\newcommand\rightaddtwo[8]{
+\begin{diagram}
+\rightonearrow{#1}{#2}
+\bottomrightadd{#3}{#4}{#5}
+\bottomrightadd{#6}{#7}{#8}
+\end{diagram}
+}
+\newcommand\rightaddonedots[2]{
+\begin{diagram}
+&\rTo^{#1}&\cdots\\
+& & &\\
+& \rTo^{#2} & \cdots\\
+\end{diagram}
+}
+\newcommand\rightaddtwodots[3]{
+\begin{diagram}
+&\rTo^{#1}&\cdots\\
+& & &\\
+& \rTo^{#2} & \cdots\\
+& & &\\
+& \rTo^{#3} & \cdots\\
+\end{diagram}
+}

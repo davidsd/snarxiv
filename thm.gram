@@ -1,0 +1,306 @@
+top ::= <theorem> | <theorem> | <theorem> | <theorem>
+#    | <lemma> <theorem> | <theorem> <cor>
+
+theorem ::= \begin{theorem}[<thname>]<thmstatement>.
+          \end{theorem} \begin{proof} <proof>
+          \end{proof}
+
+# these don't seem that convincing at the moment
+# lemma ::= \begin{lemma}<thmstatement>.
+#          \end{lemma} \begin{proof} <proof>
+#          \end{proof}
+#
+# cor ::= \begin{cor}<thmstatement>.\end{cor}
+
+proof ::= <statement>. <conclusion>. | See <citation>.
+    | <statement>. <conclusion>. | <statement>. <conclusion>.
+
+conclusion ::= 
+    The result follows by d\'evissage | The theorem follows trivially
+    | The conclusion is self-evident | Clearly, the theorem holds
+    | We leave the rest as an exercise | This is the desired result
+    | The rest follows from <citation> | QED
+    | A simple application of <famoustheorem> completes the proof
+
+famoustheorem ::=
+    <mathguy>'s theorem
+    | Hilbert's problem <nzdigit><zdigit>
+    | the Riemann Hypothesis
+    | Perelman's theorem (formerly the Poincar\'e Conjecture)
+    | horizontal Iwasawa theory | Kummer theory | the different
+    | Dynkin diagrams | Gegenbauer polynomials
+    | trichotomy
+
+thmstatement ::=
+    <subject> <connection> <claim>
+    | If <claim> then <claim>
+
+thname ::=
+    The <mathguypart> <mathnoun> <theoremtype>
+    | <mathguy>'s <modifier> <mathnoun> <theoremtype>
+    | The <modifier> <mathnoun> <theoremtype>
+
+mathguypart ::= <mathguy> | <mathguy>-<mathguypart>
+
+mathguy ::=
+    Weierstrass | Thurston | K\"och | Kronecker | Lagrange | Cramer
+    | Gauss | Euler | Euclid | Mazur | Elkies | Zorn | Bowditch
+    | Russell | Cantor | Godel | de Moivre | Galois | Schwarz | Erd\H{o}s
+    | Laplace | Boltzmann | Kantorovich | Abel | Poincar\'e | Peano
+    | Riemann | Stokes | Lebesgue | Lipschitz | Bunyakovsky | Fermat
+    | Urys\"ohn | Arzela | Ascoli | Ramanujan | Wiles | Lobachevsky
+    | Sokhotskii | Bertrand | Fubini | Frobenius | Dynkin | Bieberbach
+    | Gegenbauer | Swinnerton-Dyer | Stone | Pythagoras
+
+bookadj ::=
+    Algebraic | Geometric | Complex | Metrizable | Analytic | Non-Standard
+    | <bookadj> <bookadj> | Advanced <bookadj> | Non-Metrizable
+
+booksubj ::=
+    Number Theory | Topology | Analysis | Algebra | Manifolds | K-Theory
+    | Constructions
+
+booktitle ::=
+    <mathguy>'s {\it <bookadj> <booksubj>}
+    | <mathguy>'s {\it <bookadj> <booksubj>}, <ordinal> Edition
+    | <mathguy> and <mathguy>'s {\it <bookadj> <booksubj>}   
+    | [<nzdigit>] | [<mathguy>]
+    | {\it <bookadj> <booksubj> Revisited}
+    | <mathguy>'s {\it <booksubj> Revisited}
+    
+citation ::= <booktitle> | <booktitle>, page <biginteger> |
+    <booktitle>, <bookthmtype> <smallinteger>
+    | <booktitle>, <bookthmtype> <nzdigit>.<nzdigit>.<nzdigit>
+
+modifier ::=
+    first | second | third | implicit | inverse | normalizable | last
+    | mean | average
+
+ordinal ::= 1st | 2nd | 3rd | 4th
+
+mathnoun ::=
+    openness | completeness | function | isomorphism | diffeomorphism
+    | homeomorphism | linearity | orthogonality | dimensionality 
+    | diagonalizability | symmetry | discreteness | asymmetry | boundary
+    | value | covering | inequality | category | compactness | mapping 
+    | contraction | metrization | quantization | multiplier
+
+bookthmtype ::=
+    Theorem | Lemma | Corollary | Proposition | Definition | Exercise
+
+theoremtype ::=
+    theorem | lemma | conjecture | hypothesis
+			    
+subject ::=
+    <prefix> <vobject>, | <prefix> <cobject>, | <statement>. then
+    | <prefix> <variable> <comparison> <constant>,
+
+statement ::=
+    let <variable> be a <cobject>
+    | let <variable> be an <vobject>
+    | suppose <variable> is a <cobject>
+    | suppose <variable> is an <vobject>
+    | suppose <variable> is a <cobject> and <statement>
+    | suppose <variable> is an <vobject> and <statement>
+
+thing ::=
+    a <cobject> | an <vobject> | <variable> <comparison> <constant>
+    | <thing> and <thing> | a unique <cobject> | a unique <vobject>
+
+ergo ::= therefore | now | hence | consequently | thus | ergo
+
+connection ::= 
+    there exists <thing> such that | if <claim> then
+
+prefix ::=
+    given some | given any | for any | for every | for an arbitrary
+
+cobject ::= 
+    vector <variable> | tensor <variable> | <cspacemodifier> <setbit>
+    | <csequencemodifier> <seriesbit> | <cfunctionmodifier> <afunction>
+    | <afunction> <funname> of <variable>
+
+funname ::= $<texfun>$
+
+texfun ::= \zeta | \Gamma | p | f | g | y | h | y' | f' | \xi | f^{-1}
+    | \phi | \psi
+
+vobject ::=
+    <vspacemodifier> <setbit> | <vsequencemodifier> <seriesbit>
+    | <vfunctionmodifier> <afunction>
+    
+setbit ::= 
+    subspace of <field> | vector space over <field> | subset of <field>
+    | group in <field> | manifold locally resembling <field>
+    | polytope in <field> | tangent space of <field> at <variable>
+    | irreducible representation of <field>
+    | <nzdigit>-dimensional Riemann surface
+
+seriesbit ::=
+    series in <field> | series | sequence in <field> | sequence
+
+cspacemodifier ::=
+    bounded | non-empty | closed | compact | trivial | non-trivial
+    | connected | disjoint | finite | discrete | Euclidean
+
+vspacemodifier ::= 
+    open | unbounded | infinite | isotropic
+
+csequencemodifier ::= 
+    convergent | divergent | bounded | finite | Cauchy | square-summable
+
+vsequencemodifier ::= 
+    infinite | alternating | unbounded | absolutely convergent
+
+vfunctionmodifier ::= 
+    even | odd | antisymmetric | integrable
+
+cfunctionmodifier ::= 
+    continuous | smooth | differentiable | positive | negative
+    | non-degenerate | skew-symmetric | linear | multilinear | nonlinear
+    | differential | quadratic | symmetric | positive-definite | bilinear
+    | sesquilinear | piecewise <cfunctionmodifier>
+
+variable ::= 
+    $\lambda$ | $\alpha$ | $\beta$ | $\gamma$ | $\epsilon$ | $\delta$
+    | $\mu$ | $\rho$ | $\nu$ | $\psi$ | $a_n$ | $x_n$ | $x_i$ | $\theta$
+    | $v$ | $u$ | $w$ | $x$ | $y$ | $z$ | $b$ | $\omega$ | $\phi$
+
+nzdigit ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+zdigit ::=  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+smallinteger ::= <nzdigit> | <nzdigit> | <nzdigit><zdigit>
+biginteger ::= <zdigit> | <nzdigit><biginteger>
+pninteger ::= 0 | <smallinteger> | $-<smallinteger>$
+
+constant ::= 
+     $\pi$ | $e$ | $\kappa$ | $0$ | $1$ | $\epsilon$ | $\delta$ | <pninteger>
+
+texfield ::=
+    \Z | \Q | \R | \C | \Q_p | \Z/p\Z | \mathbb{H}
+
+texgroup ::=
+   <texfield> | <texfield>^<n> | H | G
+
+n ::=
+    n | n | <nzdigit> | m
+
+field ::= 
+    $<texfield>$ | $<texgroup>$ | $<texgroup>$
+    | $\mathcal{C}(<texfield>)$ | $<texfield>[x]$
+    | $\mathrm{GL}_<n>(<texfield>)$
+    | $\mathrm{SU}(<nzdigit>)$
+    | $\mathrm{M}_n(<texfield>)$
+    | $\mathrm{Hom}(<texgroup>,<texgroup>)$
+    | $\mathrm{Ker}(T)$
+    | $H^<n>(<texgroup>,<texgroup>)$
+    | $<texgroup> \otimes <texgroup>$
+    | the $p$-adics | $\mathrm{Im}(T)$ | $\mathrm{Ker}(\phi)$
+
+comparison ::= $\lt$ | $\gt$ | $\geq$ | $\leq$
+
+claim ::= 
+    <claimstart> an <vspacemodifier> <setbit> <spaceaction>
+    | <claimstart> a <cspacemodifier> <setbit> <spaceaction>
+    | <claimstart> a <cfunctionmodifier> <afunction> <funcaction>
+    | <claimstart> an <vfunctionmodifier> <afunction> <funcaction>
+    | <claimstart> a <csequencemodifier> <seriesbit> <seriesaction>
+    | <claimstart> an <vsequencemodifier> <seriesbit> <seriesaction>
+    | <claimstart> some vector <variable> <vecaction>
+    | <funname> is a well-defined <mapping> from <field> to <field>
+    | the following diagram commutes: <commdiagram>
+    | the sequence \begin{eqnarray}<texexactsequence>\end{eqnarray} is exact
+
+commdiagram ::= 
+    \begin{eqnarray}<heightonediagram>\end{eqnarray}
+    | \begin{eqnarray}<heightonediagram>\end{eqnarray}
+    | \begin{eqnarray}<heighttwodiagram>\end{eqnarray}
+
+heightonediagram ::= <onediagleft><onediagmiddle><onediagright>
+    
+onediagleft ::= \onebyone<fourgroups><fourfuns> | \onebyone<fourgroups><fourfuns>
+    | \oneldots\rightaddone{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+
+onediagright ::=
+    \nothing
+    | \rightaddone{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+    | \rightaddonedots{<texfun>}{<texfun>}
+
+onediagmiddle ::=
+    \rightaddone{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+    | \nothing
+    | \rightaddone{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}<onediagmiddle>
+
+heighttwodiagram ::= <twodiagleft><twodiagmiddle><twodiagright>
+
+twodiagleft ::=
+     \begin{diagram}
+       \squarecode<fourgroups><fourfuns>
+       \bottomadd{<texfun>}{<texfun>}{<texgroup>}{<texfun>}{<texgroup>}
+     \end{diagram}
+    | \begin{diagram}
+       \squarecode<fourgroups><fourfuns>
+       \bottomadd{<texfun>}{<texfun>}{<texgroup>}{<texfun>}{<texgroup>}
+      \end{diagram}
+    | \twoldots\rightaddtwo{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+                           {<texfun>}{<texfun>}{<texgroup>}
+
+twodiagmiddle ::=
+    \nothing
+    | \rightaddtwo{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+                   {<texfun>}{<texfun>}{<texgroup>}
+    | \rightaddtwo{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+                   {<texfun>}{<texfun>}{<texgroup>}<twodiagmiddle>
+
+twodiagright ::=
+    \nothing
+    | \rightaddtwo{<texfun>}{<texgroup>}{<texfun>}{<texfun>}{<texgroup>}
+                   {<texfun>}{<texfun>}{<texgroup>}
+    | \rightaddtwodots{<texfun>}{<texfun>}{<texfun>}
+
+fourgroups ::= {<texgroup>}{<texgroup>}{<texgroup>}{<texgroup>}
+fourfuns ::= {<texfun>}{<texfun>}{<texfun>}{<texfun>}
+
+texexactsequence ::= <texgroup> \rTo^{<texfun>} <texseqmid>
+    | 0 \rTo <texseqmid> | \dots \rTo <texgroup> \rTo^{<texfun>}
+     <texgroup> \rTo^{<texfun>} <texseqmid>
+
+texseqmid ::= <texgroup> \rTo <texseqend>
+	| <texgroup> \rTo^{<texfun>} <texseqend>
+
+texseqend ::= <texgroup> | <texgroup> \rTo 0 
+    | <texgroup> \rTo^{<texfun>} <texgroup> \rTo \dots 
+    | <texgroup> \rTo^{<texfun>} <texseqend>
+    | <texgroup> \rTo^{<texfun>} <texseqend>
+
+mapping ::=
+    function | mapping | homomorphism | homeomorphism | isomorphism
+    | surjective <mapping> | injective <mapping> | holomorphism
+    | biholomorphism | isometry
+  
+claimstart ::= there is | we can construct
+
+spaceaction ::= 
+    isomorphic to <field> | contained within <field> | containing <thing>
+    | diffeomorphic to <field> | homeomorphic to a <setbit>
+    | in the <intersection> | not in the <intersection>
+
+funcaction ::= 
+    that diverges | whose <alimit> is <constant> | that is Lipschitz
+
+seriesaction ::= 
+    that diverges | that converges to <constant> | that contains <constant>
+    | whose terms are all <comparison> <constant> | containing <thing>
+
+vecaction ::= 
+    contained within <field> | not in the <intersection>
+    | in the <intersection>
+
+alimit ::= limit as <variable> approaches <constant>
+
+intersection ::= 
+    intersection of <field> and <field> | union of <field> with <field>
+    | quotient of <field> and <field>
+
+afunction ::= $k$-form | function | mapping | transformation | relation
+	| form
