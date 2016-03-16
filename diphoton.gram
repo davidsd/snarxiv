@@ -1,0 +1,271 @@
+top ::= <paper>
+
+#
+# Matthew Low
+#  March 2016
+#
+# Based on snarxiv code of David Simmons-Duffin.
+#
+
+paper ::= <title> \\ <authors> \\ <comments> \\ <papersubjects> \\ <abstract>
+
+###########################################################################################################
+
+######## Author ########
+author ::= <capital>. <physicistname>
+authors ::= <author> | <author>, <author>  | <author>, <author>, <author>
+          | <author> | <author>, <author>  | <author>, <author>, <author>
+          | <author> | <author>, <author>  | <author>, <author>, <author>
+          | <author>, <author>, <author>, <author>, <author>, <author>, <author>, <author>, <author>, <author>
+
+######## Comments ########
+morecomments ::= <smallinteger> figures | JHEP style | Latex file | no figures | BibTeX
+               | JHEP3 | typos corrected | <nzdigit> tables | added refs | minor changes
+               | minor corrections | published in PRD | reference added | pdflatex
+               | based on a talk given on <famousname>'s <nzdigit>0th birthday
+              
+newcomments ::= added refs | updated figure <nzdigit>, conclusions unchanged | <smallinteger> pages | <smallinteger> pages, added refs
+
+comments ::= <smallinteger> pages | <comments>, <morecomments> | v<nnzdigit>: <newcomments>
+
+######## Subjects ########
+primarysubj   ::= High Energy Physics - Phenomenology (hep-ph)
+secondarysubj ::= High Energy Physics - Theory (hep-th) | High Energy Physics - Experiment (hep-ex)
+papersubjects ::= <primarysubj> | <primarysubj>; <secondarysubj>
+
+######## Physicist ########
+physicist ::= <physicistname> | <physicistname> | <physicistname>-<physicistname> 
+physicistname ::=  Li | Li | Li | Li | Li | Li | Li | Okada | Okada | Okada | Okada | Okada | Okada | Okada | Nomura | Nomura | Nomura | Nomura | Nomura | Nomura | Chao | Chao | Chao | Chao | Chao | Ding | Ding | Ding | Ding | Dev | Dev | Dev | Dev | Ko | Ko | Ko | Ko | Yang | Yang | Yang | Yang | Yu | Yu | Yu | Yu | Wang | Wang | Wang | Wang | Han | Han | Han | Han | Chiang | Chiang | Chiang | Chiang | Strumia | Strumia | Strumia | Strumia | Hernández | Hernández | Hernández | Hernández | Orikasa | Orikasa | Orikasa | Nomura | Nomura | Nomura | Zhang | Zhang | Zhang | Sanz | Sanz | Sanz | Yanagida | Yanagida | Yanagida | Raychaudhuri | Raychaudhuri | Raychaudhuri | Zhang | Zhang | Zhang | Ryskin | Ryskin | Ryskin | Huang | Huang | Huang | Wu | Wu | Wu | Harigaya | Harigaya | Harigaya | Yagyu | Yagyu | Yagyu | Cao | Cao | Cao | Zhang | Zhang | Zhang | Sannino | Sannino | Sannino | Sengupta | Sengupta | Sengupta | Zhu | Zhu | Zhu | Urbano | Urbano | Urbano | Yu | Yu | Hamada | Hamada | Jiang | Jiang | Omura | Omura | Gao | Gao | Zhang | Zhang | Fan | Fan | Tang | Tang | Kats | Kats | Bi | Bi | Wang | Wang | Su | Su | Mayes | Mayes | Khoze | Khoze | Dey | Dey | Aydemir | Aydemir | Ghosh | Ghosh | Mandal | Mandal | Moroi | Moroi | Fichet | Fichet | Patra | Patra | Moretti | Moretti | Sadhukhan | Sadhukhan | Sun | Sun | Zheng | Zheng | Zhu | Zhu | Kanemura | Kanemura | Wang | Wang | Raza | Raza | Park | Park | Austri | Austri | Franceschini | Franceschini | Torre | Torre | Mohapatra | Mohapatra | Cao | Cao | Langacker | Langacker | Vignaroli | Vignaroli | Park | Park | Redi | Redi | Strassler | Strassler | Arun | Arun | Ibe | Ibe | Shang | Shang | Wang | Wang | Hall | Hall | Harland-Lang | Harland-Lang | Rolbiecki | Rolbiecki | Cheung | Cheung | Mawatari | Mawatari | Bernon | Bernon | Quevillon | Quevillon | Santiago | Santiago | No | No | Park | Park | Kim | Kim | Terning | Terning | Ellis | Ellis | Ren | Ren | Song | Song | Hubisz | Hubisz | Cline | Cline | Halverson | Halverson | Maxin | Maxin | Gogoladze | Gogoladze | Han | Han | Perez | Perez | Gersdorff | Gersdorff | Staub | Staub | Bertuzzo | Bertuzzo | Molinaro | Molinaro | Vigiani | Vigiani | Nanopoulos | Nanopoulos | Bardhan | Bardhan | Borah | Borah | Marzocca | Marzocca | Buttazzo | Buttazzo | Delaunay | Delaunay | Li | Li | Royon | Royon | Dutta | Dutta | Kobakhidze | Kobakhidze | Kundu | Kundu | Goudelis | Goudelis | Tesi | Tesi | Kuo | Kuo | Chakraborty | Chakraborty | Salvio | Salvio
+
+famousname ::= Weinberg | Feynman | Polchinski | Randall | Sundrum | Georgi | Glashow | Coleman | Bohr | Fermi | Heisenberg | Einstein
+
+###########################################################################################################
+
+######## Numbers ########
+zdigit       ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+nzdigit      ::= 1 | 2 | 3 | 4
+nnzdigit     ::= 2 | 3 | 4
+smallinteger ::= <nnzdigit> | <nzdigit><zdigit> | <nzdigit><zdigit>
+n            ::= n | m | <nzdigit> 
+massnumber   ::= 300 | 400 | 500 | 600 | 700 | 800 | 900
+charge       ::= 1/3 | 2/3 | 4/3 | 5/3 | 8/3 | 1/5 | 2/5
+
+######## Language ########
+capital ::= A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
+
+article ::= a | the
+
+adverb ::= remarkably | actually | interestingly | however | moreover | therefore | thus
+         | consequently | curiously | fortunately | unfortunately | surprisingly | unsurprisingly
+         | quite simply | in short 
+
+###########################################################################################################
+title ::= <theexcess>: <subject>
+        | interpretations of <theexcess> in <model>
+        | <question> <subject>
+        | <relating> <theexcess> and <otherthing>
+        | <theexcess> from <model>
+        | interpretations of <theexcess> in extensions of <model>
+        | on <theexcess>
+        | <theexcess> as <anewparticle>
+        | a new take on <model> inspired by <theexcess>
+        | a new look at <model> inspired by <theexcess>
+
+subject ::= interpretations in <model>
+          | interpreting <theexcess> in <model>
+          | <anewparticle> in <model>
+          | calculating <quantity> in <model>
+
+quantity ::= the mass spectrum
+             | the diphoton rate
+             | the one loop amplitude
+             | the NLO cross section
+
+question ::= <how> wide? | tension with run 1? | spin-2? | spin-3/2?
+
+how ::= how | can it be | is it | what if it is
+
+theexcess ::= the 750 GeV <excess>
+              | the diphoton <excess>
+              | the $\gamma\gamma$ <excess>
+
+excess ::= excess | peak | resonance | anomaly
+
+model ::= minimal composite Higgs | the MSSM | the NMSSM | $\lambda$SUSY | technicolor 
+         | 2HDMs | SU(5) | GUT models | SO(10) | E6 | SU(3)^3
+         | two Higgs doublet models
+         | left-right models
+         | singlet-extended models | gauge-extended models
+         | split SUSY models | minisplit SUSY models
+         | the broken MRSSM
+         | composite models
+         | Georgi-Machacek models
+         | Seesaw models
+         | large N QCD | AdS/CFT
+         | the <famousname>-<famousname> model
+         | fat Higgs | little Higgs | twin Higgs
+         | folded SUSY | composite twin Higgs
+         | Pati-Salam models | flipped SU(5) models
+
+otherthing ::= the galactic center excess
+             | the 2 TeV resonance
+             | the diboson resonance
+             | muon g-2
+             | $B \to D \tau \nu$
+             | natural inflation
+             | the strong CP problem
+             | $h \to \mu \tau$
+             | the doublet-triplet splitting problem
+             | the core-cusp problem
+
+anewparticle ::= an axion
+               | a dilaton
+               | an eta
+               | an eta prime
+               | a pion
+               | a heavy pion
+               | scalar singlet
+               | an axino
+               | a pseudoscalar
+               | a pseudo Nambu Goldstone boson
+               | a sgoldstino
+               | a KK graviton
+               | a KK gluon
+               | an electroweak triplet
+               | a color sextet
+
+###########################################################################################################
+abstract ::= <asentence>.  <bsentence>.  <csentence>.  <adverb>, <dsentence>.  <closing>.
+           | <asentence>.  <bsentence>.  <csentence>.  <adverb>, <csentence>.  <closing>.
+           | <asentence>.  <adverb>, <bsentence>.  <csentence>.  <dsentence>.  <closing>.
+           | <asentence>.  <bsentence>.  <adverb>, <csentence>.  <dsentence>.  <closing>.
+           | <asentence>.  <bsentence>.  <adverb>, <csentence>.  <dsentence>. <closing>.
+           | <asentence>.  <adverb>, <bsentence>.  <adverb>, <csentence>.  <dsentence>. <closing>.
+           | <asentence>.  <adverb>, <bsentence>.  <csentence>.  <adverb>, <dsentence>. <closing>.
+
+asentence ::= <recently>, ATLAS and CMS have <observed> <anexcess> in <run2data>
+            | ATLAS and CMS have just <observed> <anexcess> in <run2data>
+            | ATLAS and CMS have just <observed> <anexcess> in <run2data> at <nzdigit>.<zdigit> sigma
+            | In this <note>, we <discuss> the <recent> diphoton <excess> at run 2
+            | In this <note>, we <discuss> the <recent> diphoton <excess> at run 2 (at <nzdigit>.<zdigit> sigma)
+            | In this <note>, we <discuss> the <recent> diphoton <excess> at run 2 and <otherthing>
+
+bsentence ::= we <consider> <theexcess> in <model>
+            | we <consider> <theexcess> in <model> with <extra>
+            | <theexcess> is <considered> in <model> with <extra>
+            | we <consider> the phenomenology of <model> and <calculate> <objects>
+            | the phenomenology of <model> is <considered> and we <calculate> <objects>
+            | <extra> are added to <model> to <accountfor> <theexcess>
+            | <although> <theexcess> could be a statistical fluctuation, <bsentence>
+            | we <consider> the phenomenology of <model> and <calculate> <objects>
+            | we <consider> <theexcess> in <model> on <space>
+
+csentence ::= a <feature> of this model is <physicsstatement>
+            | the <newparticle> is produced in <production> and decays to <diphoton>
+            | the <symmetry> symmetry protects the mass of the <newparticle>
+            | the <symmetry> symmetry protects the mass of the <newparticle>, but not the Higgs
+            | the <symmetry> symmetry stabilizes the mass of the <newparticle>
+            | the <newparticle> couples to <channel>, but not to <channel>, <reducing> tension with Run 1
+            | the <newparticle> couples not only to <channel>, but also to <channel>
+
+dsentence ::= assuming <theexcess> is real, we predict that <extra> should be at <massnumber> GeV
+            | <extra> at <massnumber> GeV should be observed soon
+            | <extra> are required at <massnumber> GeV
+            | we expect <anewparticle> above <massnumber> GeV
+            | we predict <anewparticle> below <massnumber> GeV
+            | <theexcess> implies <extra> around <massnumber> GeV
+
+closing ::= finally, <bsentence>
+          | <adverb>, there is much to be done
+          | we leave the rest for future study
+          | we will provide more details in a future paper
+          | our results are similar to work done by <physicistname>
+          | our results are similar to work done by <physicistname> and <physicistname>
+          | we believe this is indicative of a <beautiful> <fact>
+          | given this, our work may seem quite <beautiful>
+          | more data should reveal the nature of <theexcess>
+          | more data is likely to confirm this <beautiful> <fact>
+ 
+###########################################################################################################
+
+######## Verbs ########
+consider ::= scrutinize | analyze | study | consider
+
+relating ::= relating | connecting | explaining | a unified explanation for | a common framework for
+
+observed ::= observed | seen | measured | reported | released | shown | presented
+
+considered ::= scrutinized | analyzed | studied | considered
+
+calculate ::= calculate | compute | derive | analyze | predict | evaluate
+
+######## English ########
+recently ::= recently | just recently | in december | a few months ago | less than a year ago
+
+recent ::= recent | very recent | intriguing
+
+discuss ::= discuss | address | talk about | look at
+
+note ::= paper| note| letter| article|
+
+although ::= although | while | even though | despite the fact that
+
+accountfor ::= account for | explain | compensate for | allow for
+
+feature ::= feature | drawback | corollary | downside
+
+size ::= almost zero | tiny | small | large | huge | enormous | sizable
+
+reducing ::= reducing | removing | alleviating | worsening | increasing | decreasing
+
+importantadverb ::= crucially | importantly
+
+beautiful ::= beautiful | surprising | elegant | pretty | arresting | charming
+            | simple | ingenious | sophisticated | intricate | elaborate | detailed
+            | confusing | bewildering | perplexing | elaborate | involved | complicated
+            | startling | unforseen | amazing | extraordinary | remarkable
+            | shocking | unexpected | deep | mysterious | profound | unsurprising
+            | essential | fundamental | crucial | critical | key | important
+
+fact ::= fact | truth | principle | law | theorem | rule | pattern | structure | framework | edifice
+
+######## Physics ########
+diphoton ::= the diphoton channel | a pair of photons | two photons | $\gamma\gamma$
+
+newparticle ::= resonance | $X$ | $\phi$ | $S$ | $\eta$ | $S(750)$ | $X(750)$
+
+production ::= gluon fusion | vector boson fusion | photon fusion | elastic scattering | the quark antiquark channel | inelastic scattering
+
+anexcess ::= an excess | a peak | a resonance | an anomaly
+
+run2data ::= run 2 | run 2 of the LHC | the latest LHC data | the second run of the LHC | the 13 TeV data 
+
+extra ::= vector-like quarks
+        | vector-like fermions
+        | exotic fermions
+        | neutralinos
+        | light axions
+        | heavy scalars
+        | neutral fermions
+        | new gauge interactions
+        | new strong dynamics
+        | conformal dynamics
+        | colored pions
+        | charge <charge> quarks
+
+objects ::= decay widths | production rates | branching ratios | mass ratios | cross sections 
+          | the full mass spectrum | the statistical significance | 4-body decays | correlations between <channel> and <channel>
+          | flavor observables | deviations to Higgs couplings
+          | anomalous dimensions
+
+physicsstatement ::= that it is very predictive
+                   | that <channel> and <channel> are predicted to be <size>
+                   | that it cannot account for <otherthing>
+                   | that it encapsulates all the relevant physics
+                   | that it explains <otherthing>
+
+channel ::= $ZZ$ | $Z\gamma$ | $WW$ | $t\bar{t}$ | $hh$ | $b\bar{b}$
+
+space ::= a D3-brane | AdS_5 | a torus | 3-brane | warped metric | a lattice
+
+symmetry ::= chiral | shift | discrete | PQ | R | global U(1) | flavor | conformal
