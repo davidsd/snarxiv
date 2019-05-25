@@ -101,18 +101,20 @@ pluralqft ::= <qftadj> <genericqft>s
 qftadj ::= | <qftadj> <qftadj> | supersymmetric | N=<nzdigit> | adjoint | superconformal
            | conformal | extremal | chiral | topological | <n>-dimensional | twisted
            | topologically twisted | deformed | perturbative | nonperturbative | Toda | WZW
+           | invertible
 qftproperty ::= with <qftobj>
 
 qftobj ::= a <operator> | <operator>s | <mathadj> superpotential | <mathadj> kahler potential
            | <representation> <field>s | a <representation> <field>
            | gauge group <liegroup> | a <mathadj> deformation | a <optype> defect
 
-genericqft ::= QFT| CFT| Matrix Model| TQFT| <theorytype> Theory
+genericqft ::= QFT| CFT| Matrix Model| TQFT| <theorytype> Theory| NCFT
 theorytype ::= Effective Field | Quantum Field | Conformal Field | Soft-Collinear Effective | Topological Field
              | Heavy Quark Effective | low-energy Effective | String | Yang-Mills | Chern-Simons | gauge
              | Liouville
 
-properqft ::= QCD | QED | supergravity | unparticle physics | QED_3 | QCD_3
+properqft ::= QCD | QED | supergravity | unparticle physics | QED_3 | QCD_3 | GR | JT gravity
+            | Einstein gravity | General relativity | Jackiw–Teitelboim gravity | N=<n> supergravity
 
 stringtheory ::= <singstringtheory> | <pluralstringtheory>
 singstringtheory ::= String Theory | F-Theory | M-Theory | Heterotic string theory
@@ -127,10 +129,12 @@ theoryobj ::= <singtheoryobj> | <pluraltheoryobj>
 singtheoryobj ::= a <bhadj> black hole | a <singularityadj> singularity | a <branetype> brane <braneaction>
                 | a stack of <branetype> branes <braneaction> | a <generalspacetype> defect | an instanton
                 | an orientifold plane | a <branetype> instanton | a <branetype> brane probe
+                | a firewall
 
 pluraltheoryobj ::=  <bhadj> black holes | <singularityadj> singularities
                   | <branetype> branes <braneaction> | <generalspacetype> defects
                   | orientifold planes | <branetype> instantons | instantons
+                  | firewalls
 
 bhadj ::= orientifold | BTZ | Kerr | Reisner-Nordstrom | small | large
         | Schwarzschild | <branetype> brane | massive | extremal
@@ -146,16 +150,21 @@ braneaction ::= | wrapping a <mathspace> | wrapped on <singspace>
 operator ::= <optype> operator| Chern-Simons term| <optype> F-term| Wilson line| 't Hooft line|
              <generalspacetype> operator| <optype> D-term
 optype ::= primary | quasi-primary | marginal | relevant | irrelevant | four-quark | multi-fermion
-         | loop | local | nonlocal | BPS
+         | loop | local | nonlocal | BPS | light-ray | defect | weight-shifting | bounded | unbounded
+         | line | surface | half-BPS | 1/<n>-BPS | chiral | non-chiral | Schur
 
 field ::= boson| fermion| gauge-field| <n>-form| scalar
 
+experiment ::= the LHC | SNO | DAMA | ATLAS | CDMS | Bicep II | the Tevatron | LIGO
+
 objectplace ::= at the center of the galaxy | in our solar system | on the surface of the sun
-              | at the edge of our universe | in the CMB | at the LHC | at the Tevatron
-              | at SNO | at ATLAS | in the interstellar medium | at DAMA | at CDMS
+              | at the edge of our universe | in the CMB | at <experiment>
+              | in the interstellar medium
               | in the early universe | during inflation | after reheating | at the GUT scale
               | at the weak scale | at $\Lambda_{QCD}$ | at the intermediate scale | at the Planck scale
+              | at the <horizontype> horizon
 
+horizontype ::= de-Sitter | event | apparent | Poincare
 
 ######## Model ########
 
@@ -171,7 +180,8 @@ modelmodifier ::= | of <physsubject> | for <physsubject> | with <particle>s
 propermodel ::= Standard Model | MSSM | <nnnn>MSSM | Thirring Model | Ising Model
               | XXZ Model | O(n) Model | <physicist> Model | Landau-Ginzburg Model
               | A-model | B-model | SYK Model | SUSY SYK Model | Gross-Neveu Model
-              | CP<nzdigit> Model | Schwartzian Theory
+              | CP<nzdigit> Model | Schwartzian Theory | BF Theory | Tricritical Ising Model
+              | c=1 Matrix Model
 nnnn ::= N | N<nnnn>
 
 generalmodel ::= gravity | general relativity | RS1 | RS2 | technicolor
@@ -269,29 +279,36 @@ physicistname ::=
 mathconcept ::= <singmathconcept> | <pluralmathconcept>
 
 singmathconcept ::= integrability | perturbation theory | localization
-                  | duality | chaos | <mathadj> structure | <physicist>'s equation 
+                  | duality | chaos | <mathadj> structure
                   | dimensionality | <dualtype>-duality | unitarity
                   | representation theory | Clebsch-Gordon decomposition
-                  | sheaf cohomology | anomaly matching | 
+                  | sheaf cohomology | anomaly matching | semidefinite programming
+                  | harmonic analysis | causality
 
 pluralmathconcept ::= gerbs | path integrals | Feynman diagrams | <mathadj> structures
-              | <physicist> equations | <physicistname>'s equations | conformal blocks
+              | <physicist> equations | conformal blocks
               | <optype> operators | <dualtype>-dualities | <physicist> points | <group> characters
               | central charges | charges | currents | representations | <physicist> conditions
               | symplectic quotients | hyperkahler quotients | Nahm's equations | vortices
               | vortex equations | Hilbert schemes | integration cycles | divisors | line bundles
               | index theorems | flow equations | metrics | Gromov-Witten invariants
-              | Gopakumar-Vafa invariants | Donaldson polynomials
+              | Gopakumar-Vafa invariants | Donaldson polynomials | type-1 factors
 
 physconcept ::= <pluralphysconcept> | <singphysconcept>
 
 pluralphysconcept ::=
                 examples of <physconcept> | equations of <theory> | <n>-point correlators
+              | correlators of <optype> operators
               | <symmetry> algebras | fragmentation functions | decay constants | anomaly constraints
               | anomalous dimensions | PDFs | observables | effects of <physconcept> | partition functions
               | <particle> collisions | <physadj> effects | <physadj> parameters | <physadj> hierarchies
               | <physconceptnoun> | <physadj> <physconceptnoun> | amplitudes | scattering amplitudes
-              | geometric transitions
+              | geometric transitions | <optype> operators | bounds on <physconcept>
+
+physconceptnoun ::= sectors | vacua | solutions | states | geometries | currents
+                  | backgrounds | wavefunctions | excitations | branching ratios | amplitudes
+                  | decays | exotics | corrections | interactions | inhomogeneities
+                  | correlation functions | form factors | S-matrix elements | matix elements
               
 singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> symmetry
                   | <symmetry> symmetry breaking | <mechanism> | confinement | the <physadj> limit
@@ -305,14 +322,36 @@ singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> sym
                   | the <physadj> Hilbert space | the Hilbert space | "<singphysconcept>"
                   | <effect> | the OPE | IR behavior | UV behavior | a warped throat
                   | a holographic superconductor | the <particle> charge | the <particle> gyromagnetic ratio
-                  | the HRT surface | the Ryu-Takayanagi formula
+                  | the HRT surface | the <formulaname> formula | a <extended> <formulaname> formula
+                  | the <boundname> bound | a <extended> <boundname> bound
+                  | bit threads | Tomita-Takesaki theory | the <physicist> equation
+                  | the <energycondition> | the <bootstraptype> bootstrap
+                  | the entangling surface | the <limittype> limit | analyticity in spin
+                  | the crossing equation | the <entropytype> | the <entropytype> of <singspace>
+                  | complexity | data from <experiment> | the BV formalism | the shadow formalism
+                  | the space of <optype> operators | the OPE of <optype> operators
+                  | the equivalence principle | gravitational birefringence
+                  | a bound on <physconcept> | chaos | the <horizontype> horizon
 
-physconceptnoun ::= sectors | vacua | solutions | states | geometries | currents
-                  | backgrounds | wavefunctions | excitations | branching ratios | amplitudes
-                  | decays | exotics | corrections | interactions | inhomogeneities
-                  | correlation functions
+entropytype ::= von-Neumann entropy | mutual information | relative entropy | complexity | entanglement
+              | entanglement entropy | entanglement negativity | holographic mutual information
+
+extended ::= extended | improved | less-useful | more-useful | modified | generalized | defect | boundary
+
+formulaname ::= Ryu-Takayanagi | CHY | Duistermaat-Heckman | Cardy | Lorentzian inversion | Froissart-Gribov
+boundname ::= Beckenstein | HKS | Froissart | chaos 
+
+bootstraptype ::= conformal | numerical | analytical | lightcone | Regge | modular | sphere-packing
+                | S-matrix | cosmological
+
+energycondition ::= Average Null Energy Condition | ANEC | Quantum Null Energy Condition | QNEC
+                  | Quantum Focusing Conjecture | Null Energy Condition | Dominant Energy Condition
+                  | Generalized Second Law 
+
+limittype ::= lightcone | Regge | OPE | second-sheet lightcone | multi-Regge | high-energy | low-energy
+            | small-angle | long-distance
                   
-dualtype ::=T|U|S|magnetic|electric|gravitational|boundary|Seiberg|Geometric Langlands
+dualtype ::=T|U|S|magnetic|electric|gravitational|boundary|Seiberg|Geometric Langlands|N=<n>|holographic
 
 symmviol ::= | violation of | <physadj> violation of | breaking of
 symmetry ::= dilation | translation | rotation | Lorentz | conformal | superconformal
@@ -331,8 +370,7 @@ effectadj ::= <physicist> | quantum Hall | Unruh | Stark | Casimir
 physsubject ::= <singphyssubject> | <pluralphyssubject>
 singphyssubject ::=
             quintessence | <inflationadj> inflation | inflation | dark matter | dark energy
-          | spacetime foam | instanton gas | entropy | entanglement entropy | flavor
-          | bubble nucleation | entanglement negativity
+          | spacetime foam | instanton gas | <entropytype> | flavor | bubble nucleation
 
 pluralphyssubject ::=
             condensates | <branetype> branes | cosmic rays | instanton liquids
@@ -388,6 +426,7 @@ problem ::= the <problemtype> problem
 problemtype ::= hierarchy | flavor | cosmological constant | lithium | mu
               | strong CP | naturalness | little hierarchy | SUSY CP | LHC inverse
               | cosmic coincidence | U(1) | fine-tuning | mu/B_mu | confinement
+              | black-hole information
 
 ######## Verbs ########
 
@@ -518,7 +557,7 @@ asentence ::=
   | <asentence>. we take a <descriptivephysadj> approach
   | <asentence>. <motivated>, <bsentence>
   | <singsubject> offers the possibility of <studyingverb> <subject>
-  | <subject> <yields> a <beautiful> framework for <studyingverb> <subject>
+  | <singsubject> <yields> a <beautiful> framework for <studyingverb> <subject>
   | <singsubject> is usually <verbed> <via> <subject>
   | <pluralsubject> are usually <verbed> <via> <subject>
 
@@ -618,6 +657,7 @@ fancytitle ::= <subject> and <subject> | <subject> and <subject>
              | why <pluralsubject> are <descriptivephysadj>
              | <studyingverb> <subject>: a <descriptivephysadj> approach
              | on <subject> | progress in <subject>
+             | <subject> revisited
 
 author ::= <capital>. <physicistname> | <capital>. <capital>. <physicistname>
 authors ::= <author> | <author>, <authors>
