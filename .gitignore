@@ -4,3 +4,4 @@ thm
 *.ml
 *.cmi
 *.cmo
+install-snarxiv

@@ -114,7 +114,7 @@ theorytype ::= Effective Field | Quantum Field | Conformal Field | Soft-Collinea
              | Liouville
 
 properqft ::= QCD | QED | supergravity | unparticle physics | QED_3 | QCD_3 | GR | JT gravity
-            | Einstein gravity | General relativity | Jackiw–Teitelboim gravity | N=<n> supergravity
+            | Einstein gravity | General relativity | Jackiw-Teitelboim gravity | N=<n> supergravity
 
 stringtheory ::= <singstringtheory> | <pluralstringtheory>
 singstringtheory ::= String Theory | F-Theory | M-Theory | Heterotic string theory
@@ -126,7 +126,8 @@ pluralstringtheory ::= String theories | Heterotic strings | type IIA strings | 
 
 theoryobj ::= <singtheoryobj> | <pluraltheoryobj>
 
-singtheoryobj ::= a <bhadj> black hole | a <singularityadj> singularity | a <branetype> brane <braneaction>
+singtheoryobj ::= a <bhadj> black hole | a <singularityadj> singularity
+                | a <branetype> brane <braneaction>
                 | a stack of <branetype> branes <braneaction> | a <generalspacetype> defect | an instanton
                 | an orientifold plane | a <branetype> instanton | a <branetype> brane probe
                 | a firewall
@@ -137,7 +138,8 @@ pluraltheoryobj ::=  <bhadj> black holes | <singularityadj> singularities
                   | firewalls
 
 bhadj ::= orientifold | BTZ | Kerr | Reisner-Nordstrom | small | large
-        | Schwarzschild | <branetype> brane | massive | extremal
+        | Schwarzschild | <branetype> brane | massive | extremal | <n>-dimensional
+        | <bhadj> <bhadj>
 
 singularityadj ::= A_<n> | B_<n> | C_<n> | D_<n> | E_6 | E_7 | E_8 | G_2 | F_4 | conifold
           | conical | ADE | orbifold | du Val | Kleinian | rational double-point | canonical
