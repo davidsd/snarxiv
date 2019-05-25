@@ -110,8 +110,9 @@ qftobj ::= a <operator> | <operator>s | <mathadj> superpotential | <mathadj> kah
 genericqft ::= QFT| CFT| Matrix Model| TQFT| <theorytype> Theory
 theorytype ::= Effective Field | Quantum Field | Conformal Field | Soft-Collinear Effective | Topological Field
              | Heavy Quark Effective | low-energy Effective | String | Yang-Mills | Chern-Simons | gauge
+             | Liouville
 
-properqft ::= QCD | QED | supergravity | unparticle physics
+properqft ::= QCD | QED | supergravity | unparticle physics | QED_3 | QCD_3
 
 stringtheory ::= <singstringtheory> | <pluralstringtheory>
 singstringtheory ::= String Theory | F-Theory | M-Theory | Heterotic string theory
@@ -169,7 +170,8 @@ pluralmodel ::= models of <physsubject> | <physadj> models <modelmodifier> | mod
 modelmodifier ::= | of <physsubject> | for <physsubject> | with <particle>s
 propermodel ::= Standard Model | MSSM | <nnnn>MSSM | Thirring Model | Ising Model
               | XXZ Model | O(n) Model | <physicist> Model | Landau-Ginzburg Model
-              | A-model | B-model
+              | A-model | B-model | SYK Model | SUSY SYK Model | Gross-Neveu Model
+              | CP<nzdigit> Model | Schwartzian Theory
 nnnn ::= N | N<nnnn>
 
 generalmodel ::= gravity | general relativity | RS1 | RS2 | technicolor
@@ -303,6 +305,7 @@ singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> sym
                   | the <physadj> Hilbert space | the Hilbert space | "<singphysconcept>"
                   | <effect> | the OPE | IR behavior | UV behavior | a warped throat
                   | a holographic superconductor | the <particle> charge | the <particle> gyromagnetic ratio
+                  | the HRT surface | the Ryu-Takayanagi formula
 
 physconceptnoun ::= sectors | vacua | solutions | states | geometries | currents
                   | backgrounds | wavefunctions | excitations | branching ratios | amplitudes
@@ -314,7 +317,7 @@ dualtype ::=T|U|S|magnetic|electric|gravitational|boundary|Seiberg|Geometric Lan
 symmviol ::= | violation of | <physadj> violation of | breaking of
 symmetry ::= dilation | translation | rotation | Lorentz | conformal | superconformal
            | super | Poincare | worldsheet | diffeomorphism | superdiffeomorphism | <liegroup>
-           | dual-superconformal | Yangian | Virosoro
+           | dual-superconformal | Yangian | Virosoro | <nzdigit>-form | higher-form
 
 mechanism ::= the <mechanismadj> mechanism | the <physadj> <mechanismadj> mechanism
 mechanismadj ::= Higgs | seesaw | <physicist> | attractor | anomaly inflow | reheating
@@ -329,11 +332,11 @@ physsubject ::= <singphyssubject> | <pluralphyssubject>
 singphyssubject ::=
             quintessence | <inflationadj> inflation | inflation | dark matter | dark energy
           | spacetime foam | instanton gas | entropy | entanglement entropy | flavor
-          | bubble nucleation
+          | bubble nucleation | entanglement negativity
 
 pluralphyssubject ::=
             condensates | <branetype> branes | cosmic rays | instanton liquids
-          | <physadj> fluctuations | bubbles
+          | <physadj> fluctuations | bubbles | tensor networks
 
 particle ::= hadron| lepton| quark| neutrino| electron| positron| WIMP|
              slepton| squark| kk graviton| gluon| W-boson| Z-boson| neutralino|
@@ -626,9 +629,11 @@ morecomments ::= <smallinteger> figures | JHEP style | Latex file | no figures |
                | talk presented at the international <pluralphysconcept> workshop
 comments ::= <smallinteger> pages | <comments>, <morecomments>
 
-primarysubj ::= High Energy Physics - Theory (hep-th)| High Energy Physics - Phenomenology (hep-ph)|
+primarysubj ::= High Energy Physics - Theory (hep-th)| High Energy Physics - Phenomenology (hep-ph)
 secondarysubj ::= Nuclear Theory (nucl-th)| Cosmology and Extragalactic Astrophysics (astro-ph.CO)|
              General Relativity and Quantum Cosmology (gr-qc)| Statistical Mechanics (cond-mat.stat-mech)
 papersubjects ::= <primarysubj> | <papersubjects>; <secondarysubj>
 
 paper ::= <title> \\ <authors> \\ <comments> \\ <papersubjects> \\ <abstract>
+
+tweetpaper ::= <authors>: <title>
