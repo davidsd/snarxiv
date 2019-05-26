@@ -72,13 +72,14 @@ spacepart ::= boundary | conformal boundary | null future | horizon | NUT
 mapping ::=
     function | mapping | homomorphism | homeomorphism | isomorphism
     | surjective <mapping> | injective <mapping> | holomorphism
-    | biholomorphism | isometry
+    | biholomorphism | isometry | symplectomorphism
 
 mathadj ::= trivial | nontrivial | zero | nonzero | general | discrete | abelian
           | non-abelian | equivariant | <symmetry> symmetric
 mathobj ::= fundamental group | cohomology | homology | torsion | monodromy
-          | spin-structure | dimension | complex-structure | flux | B-field
-          | H-flux
+          | spin structure | dimension | complex structure | flux | B-field
+          | H-flux | groupoid | line bundle | principal bundle | connection
+          | metric | kahler form | hyperkahler structure
 
 representation ::= adjoint| symmetric tensor| antisymmetric tensor| singlet| doublet| triplet
 
@@ -153,20 +154,23 @@ operator ::= <optype> operator| Chern-Simons term| <optype> F-term| Wilson line|
              <generalspacetype> operator| <optype> D-term
 optype ::= primary | quasi-primary | marginal | relevant | irrelevant | four-quark | multi-fermion
          | loop | local | nonlocal | BPS | light-ray | defect | weight-shifting | bounded | unbounded
-         | line | surface | half-BPS | 1/<n>-BPS | chiral | non-chiral | Schur
+         | line | surface | half-BPS | 1/<n>-BPS | chiral | non-chiral | Schur | heavy | light
+         | higher-spin | continuous-spin
 
 field ::= boson| fermion| gauge-field| <n>-form| scalar
 
 experiment ::= the LHC | SNO | DAMA | ATLAS | CDMS | Bicep II | the Tevatron | LIGO
+             | future e+e- colliders | the Event-Horizon telescope
 
 objectplace ::= at the center of the galaxy | in our solar system | on the surface of the sun
               | at the edge of our universe | in the CMB | at <experiment>
               | in the interstellar medium
               | in the early universe | during inflation | after reheating | at the GUT scale
               | at the weak scale | at $\Lambda_{QCD}$ | at the intermediate scale | at the Planck scale
-              | at the <horizontype> horizon
+              | at the <horizontype> | at <n> loops | to all orders
 
-horizontype ::= de-Sitter | event | apparent | Poincare
+horizontype ::= de-Sitter horizon | event horizon | apparent horizon | Poincare horizin
+              | ergosphere | ergoregion | photon sphere
 
 ######## Model ########
 
@@ -180,7 +184,7 @@ pluralmodel ::= models of <physsubject> | <physadj> models <modelmodifier> | mod
 
 modelmodifier ::= | of <physsubject> | for <physsubject> | with <particle>s
 propermodel ::= Standard Model | MSSM | <nnnn>MSSM | Thirring Model | Ising Model
-              | XXZ Model | O(n) Model | <physicist> Model | Landau-Ginzburg Model
+              | XXZ Model | O(<n>) Model | <physicist> Model | Landau-Ginzburg Model
               | A-model | B-model | SYK Model | SUSY SYK Model | Gross-Neveu Model
               | CP<nzdigit> Model | Schwartzian Theory | BF Theory | Tricritical Ising Model
               | c=1 Matrix Model
@@ -224,11 +228,13 @@ descriptivephysadj ::=
            | gauge mediated | anomaly mediated | superconformal | extra-ordinary
            | general | anthropic | nilpotent | asymmetric | <symmetry> symmetric
            | <symmetry> invariant | spontaneous | thermodynamic | planar | inertial
-           | metastable | unstable | tachyonic | transverse | longitudinal
+           | metastable | unstable | stable | tachyonic | transverse | longitudinal
            | momentum-dependent | exclusive | diffractive | dynamical | effective
            | acoustic | primordial | possible | impossible | calculable | predictive
            | unconventional | macroscopic | microscopic | holomorphic
-           | consistent | inconsistent | anomalous
+           | consistent | inconsistent | anomalous | hadronic | leptonic
+           | ferromagnetic | singular | nonsingular | leading | subleading
+           | higher-order | novel | next-to-leading
 
 inflationadj ::= <inflationadj> <inflationadj> | <inflationadj> <inflationadj>
                | <inflationadj> <inflationadj> | <inflationadj> <inflationadj>
@@ -288,13 +294,15 @@ singmathconcept ::= integrability | perturbation theory | localization
                   | harmonic analysis | causality
 
 pluralmathconcept ::= gerbs | path integrals | Feynman diagrams | <mathadj> structures
-              | <physicist> equations | conformal blocks
+              | <physicist>'s equations | conformal blocks
               | <optype> operators | <dualtype>-dualities | <physicist> points | <group> characters
               | central charges | charges | currents | representations | <physicist> conditions
               | symplectic quotients | hyperkahler quotients | Nahm's equations | vortices
               | vortex equations | Hilbert schemes | integration cycles | divisors | line bundles
               | index theorems | flow equations | metrics | Gromov-Witten invariants
               | Gopakumar-Vafa invariants | Donaldson polynomials | type-1 factors
+              | Donaldson-Witten invariants | automorphic forms | modular forms | quasimodular forms
+              | integrable hierarchies
 
 physconcept ::= <pluralphysconcept> | <singphysconcept>
 
@@ -306,21 +314,25 @@ pluralphysconcept ::=
               | <particle> collisions | <physadj> effects | <physadj> parameters | <physadj> hierarchies
               | <physconceptnoun> | <physadj> <physconceptnoun> | amplitudes | scattering amplitudes
               | geometric transitions | <optype> operators | bounds on <physconcept>
+              | <physadj> processes | <physadj> events | large logarithms
+              | Sudakov logs | soft theorems
 
 physconceptnoun ::= sectors | vacua | solutions | states | geometries | currents
                   | backgrounds | wavefunctions | excitations | branching ratios | amplitudes
                   | decays | exotics | corrections | interactions | inhomogeneities
                   | correlation functions | form factors | S-matrix elements | matix elements
+                  | remnants
               
 singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> symmetry
                   | <symmetry> symmetry breaking | <mechanism> | confinement | the <physadj> limit
                   | the <physadj> law | the <symmetry> algebra | the beta function
                   | the Wilsonian effective action | the <n>PI effective action
-                  | the partition function | <particle> production | the effective potential
+                  | the partition function | <particle> production | black hole evaporation
+                  | the effective potential | Hawking radiation
                   | renormalization | regularization | backreaction | AdS/CFT | the partition function
                   | a <physadj> hierarchy | the <physicist> formalism | the <physadj> formalism
                   | <physadj> regularization | the 't Hooft anomaly matching condition
-                  | the S-matrix | the Hamiltonian | the Lagrangian | the omega deformation
+                  | the S-matrix | the <particle> S-matrix | the Hamiltonian | the Lagrangian | the omega deformation
                   | the <physadj> Hilbert space | the Hilbert space | "<singphysconcept>"
                   | <effect> | the OPE | IR behavior | UV behavior | a warped throat
                   | a holographic superconductor | the <particle> charge | the <particle> gyromagnetic ratio
@@ -329,11 +341,14 @@ singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> sym
                   | bit threads | Tomita-Takesaki theory | the <physicist> equation
                   | the <energycondition> | the <bootstraptype> bootstrap
                   | the entangling surface | the <limittype> limit | analyticity in spin
-                  | the crossing equation | the <entropytype> | the <entropytype> of <singspace>
+                  | the crossing equation | <entropytype> | the <entropytype> of <singspace>
                   | complexity | data from <experiment> | the BV formalism | the shadow formalism
                   | the space of <optype> operators | the OPE of <optype> operators
                   | the equivalence principle | gravitational birefringence
                   | a bound on <physconcept> | chaos | the <horizontype> horizon
+                  | <moonshinetype> moonshine | <particle> physics | soft radiation
+                  | <particle> mixing | <optype> operator mixing | the <physicist> instanton
+                  | the Weyl anomaly
 
 entropytype ::= von-Neumann entropy | mutual information | relative entropy | complexity | entanglement
               | entanglement entropy | entanglement negativity | holographic mutual information
@@ -350,6 +365,8 @@ energycondition ::= Average Null Energy Condition | ANEC | Quantum Null Energy C
                   | Quantum Focusing Conjecture | Null Energy Condition | Dominant Energy Condition
                   | Generalized Second Law 
 
+moonshinetype ::= monstrous | umbral | Mathieu | <group>
+
 limittype ::= lightcone | Regge | OPE | second-sheet lightcone | multi-Regge | high-energy | low-energy
             | small-angle | long-distance
                   
@@ -359,6 +376,7 @@ symmviol ::= | violation of | <physadj> violation of | breaking of
 symmetry ::= dilation | translation | rotation | Lorentz | conformal | superconformal
            | super | Poincare | worldsheet | diffeomorphism | superdiffeomorphism | <liegroup>
            | dual-superconformal | Yangian | Virosoro | <nzdigit>-form | higher-form
+           | broken <symmetry> | unbroken <symmetry> | spontaneously-broken <symmetry>
 
 mechanism ::= the <mechanismadj> mechanism | the <physadj> <mechanismadj> mechanism
 mechanismadj ::= Higgs | seesaw | <physicist> | attractor | anomaly inflow | reheating
@@ -381,7 +399,11 @@ pluralphyssubject ::=
 particle ::= hadron| lepton| quark| neutrino| electron| positron| WIMP|
              slepton| squark| kk graviton| gluon| W-boson| Z-boson| neutralino|
              chargino| ghost| axion| monopole| soliton| dion| kaon| B-meson| pion|
-             heavy-ion| Higgs
+             heavy-ion| Higgs| <particleadj> <particle>| <particleadj> <particle>|
+             <particleadj> particle| anyon| magnon
+
+particleadj ::= high-energy | soft | prompt | heavy | light | higher-spin | long-lived
+              | unstable | stable | relativistic
 
 subject ::= <singsubject> | <pluralsubject>
 
@@ -389,11 +411,11 @@ pluralsubject ::= <pluralmodel> | <pluraltheoryobj> | <particle>s
           | <pluralphysconcept> in <modeltheory>
           | <pluralmathconcept> in <theory> | <mathadj> <pluralmathconcept>
           | <pluralphysconcept> | <pluraltheory> | <pluralphyssubject> <objectplace>
-          | <pluraltheoryobj> <objectplace> | some <specific> <examples>
+          | <pluraltheoryobj> <objectplace> | some <specific> <examples> of <subject>
           | <pluralmathconcept> on <space>
 
-specific ::= specific | general | particular | conspicuous | little-known
-examples ::= cases | examples | illustrations | computations | frameworks | paradigms
+specific ::= specific | general | little-known | novel
+examples ::= cases | examples | investigations | computations | frameworks | paradigms
 
 singsubject ::= <singmodel> | <singtheory> | <singtheoryobj> | <problem>
               | <solution> | <studyingverb> <modeltheory>
@@ -406,6 +428,7 @@ singsubject ::= <singmodel> | <singtheory> | <singtheoryobj> | <problem>
               | <singtheoryobj> <objectplace> | <singphyssubject> <objectplace>
               | <singsubject> (<including> <subject>) | <singmathconcept> on <space>
               | <singmathconcept> | a certain notion of <singmathconcept>
+              | a <test> of <singsubject> | a <test> of <singsubject> <via> <subject>
 
 modeltheory ::= <model> | <theory>
 
@@ -526,7 +549,7 @@ muchwork ::= much work <was> done | interesting progress <was> made
            | partial progress <was> made
 
 test ::= <computation> | test | probe | measurement | check
-computation ::= computation | calculation | determination
+computation ::= computation | calculation | determination | prediction | analytical <test> | numerical <test>
 correspondence ::= correspondence | conjecture | theorem | result
 fact ::= fact | truth | principle | law | theorem | rule | pattern
        | structure | framework | edifice
@@ -657,9 +680,14 @@ fancytitle ::= <subject> and <subject> | <subject> and <subject>
              | <studyingverb> <subject> | <studyingverb> <subject>: <subject>
              | <soladj> approaches to <problem>
              | why <pluralsubject> are <descriptivephysadj>
-             | <studyingverb> <subject>: a <descriptivephysadj> approach
+             | <studyingverb> <subject>: a <descriptivephysadj> <approach>
              | on <subject> | progress in <subject>
              | <subject> revisited
+             | <remarks> on <subject>
+             | <subject> in <subject>
+
+approach ::= approach | formalism | method | technique | procedure
+remarks ::= remarks | comments
 
 author ::= <capital>. <physicistname> | <capital>. <capital>. <physicistname>
 authors ::= <author> | <author>, <authors>
