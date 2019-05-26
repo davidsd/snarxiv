@@ -32,6 +32,12 @@ discretegroup ::= \Z | \Z_<n> | \Z^<n> | Hom(<ring>,<ring>) | H^<n>(<mathspace>,
                 | Dih_<n>
 groupaction ::= orbifold | quotient
 
+lowercaseletter ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p
+                  | q | r | s | t | u | v | w | x | y | z
+uppercaseletter ::= A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P
+                  | Q | R | S | T | U | V | W | X | Y | Z
+letter ::= <lowercaseletter> | <uppercaseletter>
+
 ######## Spaces ########
 
 space ::= <pluralspace> | <singspace> | <mathspace>
@@ -74,7 +80,7 @@ mapping ::=
     | surjective <mapping> | injective <mapping> | holomorphism
     | biholomorphism | isometry | symplectomorphism
 
-mathadj ::= trivial | nontrivial | zero | nonzero | general | discrete | abelian
+mathadj ::= trivial | nontrivial | vanishing | nonvanishing | general | discrete | abelian
           | non-abelian | equivariant | <symmetry> symmetric
 mathobj ::= fundamental group | cohomology | homology | torsion | monodromy
           | spin structure | dimension | complex structure | flux | B-field
@@ -100,7 +106,7 @@ singqft ::= <properqft> | <qftadj> <properqft> | <properqft> <qftproperty>
 pluralqft ::= <qftadj> <genericqft>s
 
 qftadj ::= | <qftadj> <qftadj> | supersymmetric | N=<nzdigit> | adjoint | superconformal
-           | conformal | extremal | chiral | topological | <n>-dimensional | twisted
+           | conformal | extremal | chiral | topological | <n>-dimensional | <n>+1-dimensional | twisted
            | topologically twisted | deformed | perturbative | nonperturbative | Toda | WZW
            | invertible
 qftproperty ::= with <qftobj>
@@ -127,20 +133,37 @@ pluralstringtheory ::= String theories | Heterotic strings | type IIA strings | 
 
 theoryobj ::= <singtheoryobj> | <pluraltheoryobj>
 
-singtheoryobj ::= a <bhadj> black hole | a <singularityadj> singularity
+singtheoryobj ::= <singblackhole> 
+                | <singblackhole> formed from collapse
+                | a <singularityadj> singularity
                 | a <branetype> brane <braneaction>
-                | a stack of <branetype> branes <braneaction> | a <generalspacetype> defect | an instanton
-                | an orientifold plane | a <branetype> instanton | a <branetype> brane probe
+                | a stack of <branetype> branes <braneaction>
+                | a <generalspacetype> defect
+                | an instanton
+                | an orientifold plane
+                | a <branetype> instanton
+                | a <branetype> brane probe
                 | a firewall
 
-pluraltheoryobj ::=  <bhadj> black holes | <singularityadj> singularities
-                  | <branetype> branes <braneaction> | <generalspacetype> defects
-                  | orientifold planes | <branetype> instantons | instantons
+pluraltheoryobj ::= <pluralblackhole>
+                  | <pluralblackhole> formed from collapse
+                  | <singularityadj> singularities
+                  | <branetype> branes <braneaction>
+                  | <generalspacetype> defects
+                  | orientifold planes
+                  | <branetype> instantons
+                  | instantons
                   | firewalls
+
+hole ::= hole| brane
+
+singblackhole ::= a black <hole> | a <bhadj> black <hole>
+pluralblackhole ::= black <hole>s | <bhadj> black <hole>s
 
 bhadj ::= orientifold | BTZ | Kerr | Reisner-Nordstrom | small | large
         | Schwarzschild | <branetype> brane | massive | extremal | <n>-dimensional
-        | <bhadj> <bhadj>
+        | <bhadj> <bhadj> | two-sided | near-extremal | eternal | old | collapsing
+        | entangled | fat
 
 singularityadj ::= A_<n> | B_<n> | C_<n> | D_<n> | E_6 | E_7 | E_8 | G_2 | F_4 | conifold
           | conical | ADE | orbifold | du Val | Kleinian | rational double-point | canonical
@@ -169,8 +192,8 @@ objectplace ::= at the center of the galaxy | in our solar system | on the surfa
               | at the weak scale | at $\Lambda_{QCD}$ | at the intermediate scale | at the Planck scale
               | at the <horizontype> | at <n> loops | to all orders
 
-horizontype ::= de-Sitter horizon | event horizon | apparent horizon | Poincare horizin
-              | ergosphere | ergoregion | photon sphere
+horizontype ::= de-Sitter horizon | event horizon | apparent horizon | Poincare horizon
+              | ergosphere | photon sphere | stretched horizon
 
 ######## Model ########
 
@@ -216,7 +239,7 @@ nondescriptivephysadj ::=
            | braneworld | GUT | <liegroup> | scalar field | RS 
            | flavor | Landau-Ginzburg | Planck | <physicist> | left-right
            | large-N | parent | QCD | QED | BPS | unparticle | high-scale | low-scale
-           | large mass
+           | large mass | <limittype> | <limittype> | first-order | second-order
 
 descriptivephysadj ::=
              non-gaussian | simple | inflationary | <inflationadj> inflationary
@@ -302,9 +325,9 @@ pluralmathconcept ::= gerbs | path integrals | Feynman diagrams | <mathadj> stru
               | index theorems | flow equations | metrics | Gromov-Witten invariants
               | Gopakumar-Vafa invariants | Donaldson polynomials | type-1 factors
               | Donaldson-Witten invariants | automorphic forms | modular forms | quasimodular forms
-              | integrable hierarchies
+              | integrable hierarchies | Kloosterman sums
 
-physconcept ::= <pluralphysconcept> | <singphysconcept>
+physconcept ::= <pluralphysconcept> | <singphysconcept> | <singphysconcept>
 
 pluralphysconcept ::=
                 examples of <physconcept> | equations of <theory> | <n>-point correlators
@@ -315,7 +338,11 @@ pluralphysconcept ::=
               | <physconceptnoun> | <physadj> <physconceptnoun> | amplitudes | scattering amplitudes
               | geometric transitions | <optype> operators | bounds on <physconcept>
               | <physadj> processes | <physadj> events | large logarithms
-              | Sudakov logs | soft theorems
+              | Sudakov logs | soft theorems | quasinormal modes | anomalies | event shapes
+              | random tensors | melonic diagrams | BMS supertranslations
+              | causality constraints | gravitational waves | constraints on <physconcept>
+              | scattering equations | spinning <pluralphysconcept> | fast scramblers
+              | crunches | firewalls
 
 physconceptnoun ::= sectors | vacua | solutions | states | geometries | currents
                   | backgrounds | wavefunctions | excitations | branching ratios | amplitudes
@@ -348,18 +375,25 @@ singphysconcept ::= <symmviol> <symmetry> invariance | <symmviol> <symmetry> sym
                   | a bound on <physconcept> | chaos | the <horizontype> horizon
                   | <moonshinetype> moonshine | <particle> physics | soft radiation
                   | <particle> mixing | <optype> operator mixing | the <physicist> instanton
-                  | the Weyl anomaly
+                  | the Weyl anomaly | p-adic AdS/CFT | <letter>
+                  | cosmic censorship | the code subspace | the Hayden-Preskill protocol
+                  | the thermofield double | bulk locality | locality
+                  | an anomaly | a <soladj> anomaly | a Lifshitz point | a holographic superconductor
+                  | a hologram | a double copy of <qft> | the double copy construction
+                  | the butterfly effect | black hole complementarity | complementarity
 
-entropytype ::= von-Neumann entropy | mutual information | relative entropy | complexity | entanglement
-              | entanglement entropy | entanglement negativity | holographic mutual information
+entropytype ::= holographic <entropytype> | entropy | von-Neumann entropy | mutual information
+              | relative entropy | complexity | entanglement
+              | entanglement entropy | entanglement negativity 
+              | modular hamiltonian | entanglement of purification | entropy cone
 
 extended ::= extended | improved | less-useful | more-useful | modified | generalized | defect | boundary
 
 formulaname ::= Ryu-Takayanagi | CHY | Duistermaat-Heckman | Cardy | Lorentzian inversion | Froissart-Gribov
 boundname ::= Beckenstein | HKS | Froissart | chaos 
 
-bootstraptype ::= conformal | numerical | analytical | lightcone | Regge | modular | sphere-packing
-                | S-matrix | cosmological
+bootstraptype ::= conformal | numerical | analytic | lightcone | Regge | modular | sphere-packing
+                | S-matrix | cosmological | hexagon | pentagon | amplitudes | holographic
 
 energycondition ::= Average Null Energy Condition | ANEC | Quantum Null Energy Condition | QNEC
                   | Quantum Focusing Conjecture | Null Energy Condition | Dominant Energy Condition
@@ -400,7 +434,7 @@ particle ::= hadron| lepton| quark| neutrino| electron| positron| WIMP|
              slepton| squark| kk graviton| gluon| W-boson| Z-boson| neutralino|
              chargino| ghost| axion| monopole| soliton| dion| kaon| B-meson| pion|
              heavy-ion| Higgs| <particleadj> <particle>| <particleadj> <particle>|
-             <particleadj> particle| anyon| magnon
+             <particleadj> particle| anyon| magnon| hexaquark
 
 particleadj ::= high-energy | soft | prompt | heavy | light | higher-spin | long-lived
               | unstable | stable | relativistic
@@ -442,23 +476,25 @@ solution ::= <article> solution <solved> | <article> <soladj> solution <solved>
            | a resolution of <problem> | a <soladj> resolution of <problem>
            | a <soladj> approach to <problem>
 solved ::= to <problem> | of <theory>
-via ::= via | through | from | by
+via ::= via | from | using
 soladj ::= better | new | beautiful | quantum | physical | old | clever
          | minimal | non-minimal | <physadj> | anthropic | entropic | possible
-         | probable | partial
+         | probable | partial | novel | unexpected
 
 problem ::= the <problemtype> problem 
 problemtype ::= hierarchy | flavor | cosmological constant | lithium | mu
               | strong CP | naturalness | little hierarchy | SUSY CP | LHC inverse
               | cosmic coincidence | U(1) | fine-tuning | mu/B_mu | confinement
-              | black-hole information
+              | black-hole information | typical state
 
 ######## Verbs ########
 
 verb ::= derive | obtain | deduce | discover | find
-       | conjecture | check | calculate | predict
+       | conjecture | check | calculate | predict | implement
 verbed ::= derived | obtained | deduced | discovered | found | conjectured
-         | realized | checked | calculated | predicted
+         | realized | checked | calculated | predicted | implemented
+verbs ::= extremizes | maximizes | minimizes | realizes | implements
+        | predicts
 
 studyverb ::= study | solve | investigate | demystify | bound
             | classify | obtain | derive | generalize | explore
@@ -672,22 +708,50 @@ abstract ::=
   | <bsentence>. <csentence>. <dsentence>. <adverb>, <asentence>. <csentence>. <closing>.
 
 title ::= <subject> | <fancytitle> | <fancytitle>
-fancytitle ::= <subject> and <subject> | <subject> and <subject>
+fancytitle ::= <subject> and <subject>
              | <subject> and <subject>
+             | <subject> and <subject>
+             | <subject>, <subject>, and <subject>
              | from <subject> to <subject>
-             | <subject> <verbed> <via> <pluralmathconcept> | towards <subject>
-             | <subject> <via> <subject> | <subject> as <subject>
-             | <studyingverb> <subject> | <studyingverb> <subject>: <subject>
+             | <subject> <verbed> <via> <pluralmathconcept>
+             | towards <subject>
+             | <subject> <via> <subject>
+             | <subject> as <subject>
+             | <studyingverb> <subject>
+             | <studyingverb> <subject>: <subject>
              | <soladj> approaches to <problem>
-             | why <pluralsubject> are <descriptivephysadj>
+             | <pluralsubject> are <descriptivephysadj>
+             | <singsubject> <verbs> <singsubject>
              | <studyingverb> <subject>: a <descriptivephysadj> <approach>
-             | on <subject> | progress in <subject>
-             | <subject> revisited
+             | on <subject>
+             | progress in <subject>
+             | <subject> <revisited>
              | <remarks> on <subject>
              | <subject> in <subject>
+             | <school> lectures on <subject>
+             | <subject> vs <subject>
+             | <goofytitle>
 
-approach ::= approach | formalism | method | technique | procedure
+school ::= PIPT | TASI | Cargese | Strings School | CERN Winter School | Jerusalem | Mathematica School
+
+goofytitle ::= <nzdigit><zdigit> years of debate with <physicist>
+             | reading between the lines of <subject>
+             | <physicist> and me
+             | the world as <singphysconcept>
+             | cool horizons for <pluralphysconcept>
+             | <singphysconcept> is not enough
+             | the <nzdigit> faces of <singphysconcept>
+             | disturbing implications of <singphysconcept>
+             | how <physicist> tamed <singphysconcept> from <singspace>
+             | invasion of <singphysconcept> from <singspace>
+             | trouble for <pluralphysconcept>
+             | comment on a proposal by <physicist>
+             | some speculations about <physconcept>
+             | <singphysconcept> catastrophe
+
+approach ::= approach | formalism | method | technique | procedure | conjecture
 remarks ::= remarks | comments
+revisited ::= revisited | reexamined | reconsidered
 
 author ::= <capital>. <physicistname> | <capital>. <capital>. <physicistname>
 authors ::= <author> | <author>, <authors>
